@@ -17,7 +17,7 @@ import {useAsync} from "@/hooks";
 import {SchemaForm} from '@/components/JSON-schema-form'
 import {patchAdminDictConfig, postAdminDictConfig} from "@/api/system/dict";
 import {FormSchema} from "@/types/schema";
-import {cloneDeep} from "@/utils/lodashChunk";
+import {cloneDeep} from "lodash";
 
 export default defineComponent({
   name: "operate-modal",

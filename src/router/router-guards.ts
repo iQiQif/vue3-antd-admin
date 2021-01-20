@@ -5,7 +5,7 @@ import {ACCESS_TOKEN} from '@/store/mutation-types'
 import {createStorage} from '@/utils/Storage'
 
 const Storage = createStorage()
-import {debounce} from '@/utils/lodashChunk'
+import {debounce} from 'lodash'
 
 NProgress.configure({showSpinner: false}) // NProgress Configuration
 

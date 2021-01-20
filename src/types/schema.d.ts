@@ -1,7 +1,7 @@
 import {VNode, ComponentInternalInstance, HTMLAttributes} from 'vue'
-import {RuleObject} from 'ant-design-vue/lib/form/interface'
-import {FormItemProps} from 'ant-design-vue/lib/form/FormItem'
-import {FormProps, ValidationRule} from 'ant-design-vue/lib/form/Form'
+import {RuleObject} from '../../node_modules/ant-design-vue/lib/form/interface'
+import {FormItemProps} from '../../node_modules/ant-design-vue/lib/form/FormItem'
+import {FormProps, ValidationRule} from '../../node_modules/ant-design-vue/lib/form/Form'
 
 declare interface OptionItem {
     label: string;

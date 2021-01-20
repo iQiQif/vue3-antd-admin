@@ -1,7 +1,6 @@
 <template>
   <div class="login-box">
     <div class="login-logo">
-      <svg-icon icon-class="logo" />
 <!--      <img src="~@/assets/images/logo.png" alt="">-->
       <h1>Antd Admin</h1>
     </div>
@@ -42,11 +41,9 @@ import {useStore} from 'vuex'
 
 import {login} from "@/api/system/user";
 
-import {SvgIcon} from '@/components/svg-icon'
-
 export default defineComponent({
   name: "login",
-  components: {UserOutlined, LockOutlined, SvgIcon},
+  components: {UserOutlined, LockOutlined},
   setup() {
     const state = reactive({
       loading: false,
@@ -103,7 +100,7 @@ export default defineComponent({
   padding-top: 240px;
   flex-direction: column;
   align-items: center;
-  background: url("~@/assets/login.svg");
+  background: url("../../../assets/login.svg");
   background-size: 100%;
 
   .login-logo {

@@ -12,8 +12,8 @@ export default (columnsProp) => {
     columnsProp.forEach(item => item.customHeaderCell = (columns) => ({
         onmouseenter: () => {
             headerCell = columns.title[0].el.closest('th')
-            table ??= headerCell.closest('.ant-table-wrapper')
-            tableX ??= table.clientWidth
+            table = table || headerCell.closest('.ant-table-wrapper')
+            tableX = tableX || table.clientWidth
             // console.log(headerCell, 'columns')
             headerCell.onmousemove = function(event) {
                 if (event.offsetX > this.offsetWidth - 10) {

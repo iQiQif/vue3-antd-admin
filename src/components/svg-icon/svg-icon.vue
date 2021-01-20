@@ -7,13 +7,6 @@
 <script lang="ts">
 import {defineComponent, computed} from 'vue'
 
-const importAll = (requireContext: __WebpackModuleApi.RequireContext) => requireContext.keys().forEach(requireContext);
-try {
-  importAll(require.context('@/assets/icons', true, /\.svg$/));
-} catch (error) {
-  console.log(error);
-}
-
 interface SvgIcon {
   iconClass: string;
   className?: string;

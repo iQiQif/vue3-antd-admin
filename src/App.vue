@@ -65,9 +65,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import "~@/styles/global.scss";
-@import "~@/styles/common.scss";
-@import "~@/styles/override.scss";
+@import "./styles/global.scss";
+@import "./styles/common.scss";
+@import "./styles/override.scss";
 
 .slide-up-enter-active,
 .slide-up-leave-active {

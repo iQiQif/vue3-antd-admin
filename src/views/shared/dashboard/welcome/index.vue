@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="box">
-      <img src="~@/assets/analysis.svg">
+      <img src="../../../../assets/analysis.svg">
       <a-descriptions title="系统信息" bordered>
         <a-descriptions-item label="IP" key="IP">
           {{ userInfo.IP }}

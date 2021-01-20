@@ -1,7 +1,13 @@
 import { createStore } from 'vuex'
 import getters from "@/store/getters";
-import modules from '@/store/modules'
 import {App} from "vue";
+
+const allModules = import.meta.globEager('./modules/*.ts')
+const modules = {}
+Object.keys(allModules).forEach(path => {
+  const fileName = path.replace(/(.*\/)*([^.]+).*/ig,"$2")
+  modules[fileName] = allModules[path].default
+})
 
 const store = createStore({
   state: {

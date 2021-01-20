@@ -1,10 +1,7 @@
-const path = require('path')
-
-const file = require.context('./', true, /\.vue/)
+const allModules = import.meta.globEager('./*.vue')
 const components = {}
-file.keys().forEach(key => {
-    const name = path.basename(key, '.vue')
-    components[name] = file(key).default || file(key)
+Object.keys(allModules).forEach(path => {
+    const fileName = path.replace(/(.*\/)*([^.]+).*/ig,"$2")
+    components[fileName] = allModules[path].default
 })
-
 export default components

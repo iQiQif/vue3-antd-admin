@@ -1,6 +1,6 @@
 import {nextTick, onBeforeUnmount, onMounted, ref, SetupContext, watch} from "vue";
 import {getTransitionProps} from "ant-design-vue/lib/_util/transition";
-import {debounce} from "@/utils/lodashChunk";
+import {debounce} from "lodash";
 
 export default function useModal (props, {emit, attrs}: SetupContext) {
     const dragRef = ref<any>(null);
