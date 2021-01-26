@@ -1310,10 +1310,10 @@ errno@^0.1.1:
   dependencies:
     prr "~1.0.1"
 
-esbuild@^0.8.26:
-  version "0.8.33"
-  resolved "https://registry.npm.taobao.org/esbuild/download/esbuild-0.8.33.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fesbuild%2Fdownload%2Fesbuild-0.8.33.tgz#4e24ab4e780b08ff5527171bf5a684594c8b56e9"
-  integrity sha1-TiSrTngLCP9VJxcb9aaEWUyLVuk=
+esbuild@^0.8.34:
+  version "0.8.36"
+  resolved "https://registry.npm.taobao.org/esbuild/download/esbuild-0.8.36.tgz?cache=0&sync_timestamp=1611659955754&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fesbuild%2Fdownload%2Fesbuild-0.8.36.tgz#f5b7c61473721c7d53ffe7c88708e25f3b6182f3"
+  integrity sha1-9bfGFHNyHH1T/+fIhwjiXzthgvM=
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -3393,12 +3393,12 @@ v8-compile-cache@^2.0.3:
   resolved "https://registry.npm.taobao.org/v8-compile-cache/download/v8-compile-cache-2.2.0.tgz?cache=0&sync_timestamp=1603909620959&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fv8-compile-cache%2Fdownload%2Fv8-compile-cache-2.2.0.tgz#9471efa3ef9128d2f7c6a7ca39c4dd6b5055b132"
   integrity sha1-lHHvo++RKNL3xqfKOcTda1BVsTI=
 
-vite@^2.0.0-beta.34:
-  version "2.0.0-beta.34"
-  resolved "https://registry.npm.taobao.org/vite/download/vite-2.0.0-beta.34.tgz#8db57443789b1bb0eac624cc596f3aeb7fde9eea"
-  integrity sha1-jbV0Q3ibG7DqxiTMWW8663/enuo=
+vite@^2.0.0-beta.49:
+  version "2.0.0-beta.49"
+  resolved "https://registry.npm.taobao.org/vite/download/vite-2.0.0-beta.49.tgz#a4d96107bbd72aedbe91baf0c53345d9ef559b2b"
+  integrity sha1-pNlhB7vXKu2+kbrwxTNF2e9Vmys=
   dependencies:
-    esbuild "^0.8.26"
+    esbuild "^0.8.34"
     postcss "^8.2.1"
     resolve "^1.19.0"
     rollup "^2.35.1"

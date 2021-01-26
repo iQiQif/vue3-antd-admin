@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vite",
-    "build": "vuedx-typecheck . && vite build",
+    "build": "vite build",
+    "build typecheck": "vuedx-typecheck . && vite build",
     "deploy": "gh-pages -d dist",
     "test prod gzip": "http-server dist --cors --gzip -c-1",
     "test prod cors": "http-server dist --cors --gzip -P http://us-la-cn2.sakurafrp.com:59660"
@@ -43,7 +44,7 @@
     "sass-loader": "^10.0.2",
     "svg-sprite-loader": "^5.0.0",
     "typescript": "^4.1.2",
-    "vite": "^2.0.0-beta.34"
+    "vite": "^2.0.0-beta.49"
   },
   "husky": {
     "hooks": {
