@@ -19,7 +19,7 @@ const store = createStore<GlobalDataProps>({
     testName: 'hello'
   },
   mutations: {
-    setTestName(state, name) {
+    setTestName(state, name: string) {
       state.testName = name
     }
   },
