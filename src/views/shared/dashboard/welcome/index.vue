@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Demo />
+    <Demo3 />
     <div class="box">
       <img src="~@/assets/analysis.svg">
       <a-descriptions
@@ -38,7 +38,7 @@ import BrowserType from '@/utils/browser-type'
 import { useBattery } from '@/hooks/useBattery'
 import { useOnline } from '@/hooks/useOnline'
 import { useStore } from 'vuex'
-import Demo from '../components/Demo'
+import Demo3 from '../components/Demo3.vue'
 
 export default defineComponent({
   name: 'welcome',
@@ -46,7 +46,7 @@ export default defineComponent({
     [Badge.name]: Badge,
     [Descriptions.name]: Descriptions,
     [Descriptions.Item.name]: Descriptions.Item,
-    Demo
+    Demo3
   },
   setup() {
     const userInfo = useStore().getters.userInfo
@@ -87,12 +87,12 @@ export default defineComponent({
 <style lang="scss" scoped>
 .box {
   width: 100%;
-  height: calc(100vh - 280px);
+  height: 100%;
   display: flex;
   flex-direction: column;
 
   img {
-    flex: 1;
+    height: 250px;
   }
 
   .ant-form {

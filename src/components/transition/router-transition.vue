@@ -1,17 +1,18 @@
 <template>
   <router-view v-slot="{ Component,  }">
-    <transition
+    <!-- 路由动画 -->
+    <!-- <transition
       name="zoom-fade"
       mode="out-in"
       appear
+    > -->
+    <keep-alive
+      :include="keepAliveComponents"
+      :max="10"
     >
-      <keep-alive
-        :include="keepAliveComponents"
-        :max="10"
-      >
-        <component :is="Component" />
-      </keep-alive>
-    </transition>
+      <component :is="Component" />
+    </keep-alive>
+    <!-- </transition> -->
   </router-view>
 </template>
 

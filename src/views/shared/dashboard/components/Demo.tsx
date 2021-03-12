@@ -1,7 +1,6 @@
 import { Button } from 'ant-design-vue'
 import { defineComponent, ref } from 'vue'
 import Demo1 from './Demo1'
-import Demo2 from './Demo2.vue'
 
 export default defineComponent({
   setup() {
@@ -15,7 +14,6 @@ export default defineComponent({
             console.log(e)
           }}
         />
-        <Demo2 />
       </>
     )
   }

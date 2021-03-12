@@ -4,7 +4,10 @@
     <div class="contrast">
       <div class="circle"></div>
       <ul class="bubbles">
-        <li v-for="i in 15" :key="i"></li>
+        <li
+          v-for="i in 15"
+          :key="i"
+        ></li>
       </ul>
     </div>
     <div class="charging">
@@ -13,28 +16,31 @@
         剩余可使用时间：{{ calcDischargingTime }}
       </div>
       <span v-show="Number.isFinite(battery.chargingTime) && battery.chargingTime != 0">
-          距离电池充满需要：{{ calcDischargingTime }}
-        </span>
+        距离电池充满需要：{{ calcDischargingTime }}
+      </span>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "huawei-charge",
+  name: 'huawei-charge',
   // props: ['batteryStatus', 'battery', 'calcDischargingTime'],
   props: {
-    battery: { // 电池对象
+    battery: {
+      // 电池对象
       type: Object,
       default: () => ({})
     },
-    calcDischargingTime: { // 电池剩余时间可用时间
+    calcDischargingTime: {
+      // 电池剩余时间可用时间
       type: String,
       default: ''
     },
-    batteryStatus: { // 电池状态
+    batteryStatus: {
+      // 电池状态
       type: String,
       validator: (val: string) => ['充电中', '已充满', '已断开电源'].includes(val)
     }
@@ -77,7 +83,7 @@ export default defineComponent({
       filter: blur(8px);
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         top: 40%;
         left: 50%;
@@ -90,7 +96,7 @@ export default defineComponent({
       }
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         width: 176px;
         height: 176px;
@@ -128,7 +134,6 @@ export default defineComponent({
   }
 }
 
-
 @for $i from 0 through 15 {
   li:nth-child(#{$i}) {
     $width: 15 + random(15) + px;
@@ -137,7 +142,7 @@ export default defineComponent({
     transform: translate(-50%, -50%);
     width: $width;
     height: $width;
-    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000) / 1000}s infinite;
   }
 }
 
@@ -155,7 +160,7 @@ export default defineComponent({
     opacity: 1;
   }
   100% {
-    opacity: .1;
+    opacity: 0.1;
     transform: translate(-50%, -180px);
   }
 }
@@ -165,5 +170,4 @@ export default defineComponent({
     filter: contrast(15) hue-rotate(360deg);
   }
 }
-
 </style>

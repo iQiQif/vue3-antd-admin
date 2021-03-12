@@ -183,8 +183,6 @@ export default defineComponent({
     })
 
     const tabsList = computed(() => store.getters.tabsList)
-    console.log(tabsList.value, 'tabsList')
-
     const whiteList = ['Redirect', 'login']
 
     watch(
@@ -314,7 +312,7 @@ export default defineComponent({
   }
 
   .tabs-view-content {
-    padding: 20px 14px 0;
+    padding: 20px 14px;
     /*height: calc(100vh - #{$header-height});*/
     height: calc(100vh - 110px);
     overflow: auto;

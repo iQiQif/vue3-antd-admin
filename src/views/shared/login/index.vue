@@ -68,8 +68,8 @@ export default defineComponent({
     const state = reactive({
       loading: false,
       formInline: {
-        username: '',
-        password: ''
+        username: 'admin',
+        password: '123456'
       }
     })
 

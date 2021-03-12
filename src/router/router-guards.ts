@@ -3,14 +3,12 @@ import store from '@/store'
 import NProgress from 'nprogress' // progress bar
 import { ACCESS_TOKEN } from '@/store/mutation-types'
 import { createStorage } from '@/utils/Storage'
-
-const Storage = createStorage()
 import { debounce } from '@/utils/lodashChunk'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
+const Storage = createStorage()
 const allowList = ['login', 'icons', 'error', 'error-404'] // no redirect whitelist
-
 const loginRoutePath = '/login'
 const defaultRoutePath = '/dashboard'
 
