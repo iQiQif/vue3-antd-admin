@@ -2,7 +2,7 @@ import http from '@/utils/http/axios';
 import {
   GetByUserIdParams,
   GetMenuListByUserIdResult,
-  GetAuthCodeByUserIdResult,
+  GetAuthCodeByUserIdResult
 } from './model/menuModel';
 
 enum Api {
@@ -16,7 +16,7 @@ enum Api {
 export function adminMenus() {
   return http.request<GetMenuListByUserIdResult>({
     url: Api.adminMenus,
-    method: 'GET',
+    method: 'GET'
   });
 }
 
@@ -28,6 +28,6 @@ export function getBtnCodeListByUserId(params: GetByUserIdParams) {
   return http.request<GetAuthCodeByUserIdResult>({
     url: Api.GetBtnCodeListByUserId,
     method: 'GET',
-    params,
+    params
   });
 }

@@ -1,11 +1,26 @@
 <template>
-  <dynamic-table ref="tableRef" @expand="expand" :columns="columns" :get-list-func="getAdminAccess" rowKey="id"
-                 :row-selection="rowSelection">
+  <dynamic-table
+    ref="tableRef"
+    @expand="expand"
+    :columns="columns"
+    :get-list-func="getAdminAccess"
+    rowKey="id"
+    :row-selection="rowSelection"
+  >
     <template v-slot:title>
-      <a-button v-permission="{ action: 'create', effect: 'disabled' }" @click="addItem" type="primary">
+      <a-button
+        v-permission="{ action: 'create', effect: 'disabled' }"
+        @click="addItem"
+        type="primary"
+      >
         添加
       </a-button>
-      <a-button @click="deleteItems" v-permission="{ action: 'delete' }" :disabled="isDisabled" type="primary">
+      <a-button
+        @click="deleteItems"
+        v-permission="{ action: 'delete' }"
+        :disabled="isDisabled"
+        type="primary"
+      >
         删除
       </a-button>
     </template>
@@ -17,21 +32,20 @@
   </dynamic-table>
 </template>
 <script lang="ts">
-import {defineComponent, reactive, toRefs, createVNode, render, nextTick, computed, ref} from 'vue'
-import {Modal} from 'ant-design-vue'
-import {QuestionCircleOutlined, LoadingOutlined} from '@ant-design/icons-vue'
-import {DynamicTable} from '@/components/dynamic-table'
-import {delAdminAccess, getAdminAccess} from '@/api/system/access'
+import { defineComponent, reactive, toRefs, createVNode, computed, ref } from 'vue'
+import { Modal } from 'ant-design-vue'
+import { QuestionCircleOutlined } from '@ant-design/icons-vue'
+import { DynamicTable } from '@/components/dynamic-table'
+import { delAdminAccess, getAdminAccess } from '@/api/system/access'
 import AddModal from './add-modal.vue'
-import {columns} from "./columns";
+import { columns } from './columns'
 import useExpandLoading from '@/components/dynamic-table/utils/useExpandLoading'
-import {useCreateModal} from "@/hooks";
-
+import { useCreateModal } from '@/hooks'
 
 export default defineComponent({
   name: 'system-access',
   components: {
-    DynamicTable,
+    DynamicTable
   },
   setup() {
     const tableRef = ref<any>(null)
@@ -41,11 +55,11 @@ export default defineComponent({
       expandedRowKeys: [] as string[],
       tableLoading: false,
       rowSelection: {
-        onChange: (selectedRowKeys, selectedRows) => {
-          state.rowSelection.selectedRowKeys = selectedRowKeys;
+        onChange: (selectedRowKeys) => {
+          state.rowSelection.selectedRowKeys = selectedRowKeys
         },
         selectedRowKeys: []
-      },
+      }
     })
 
     // 删除多项
@@ -71,18 +85,18 @@ export default defineComponent({
     }
 
     // 是否禁用批量删除按钮
-    const isDisabled = computed(() => state.rowSelection.selectedRowKeys.length == 0)
+    const isDisabled = computed(() => state.rowSelection.selectedRowKeys.length === 0)
 
     // 点击展开图标
     const expand = async (expanded, record) => {
       const expandItemEl = state.itemRefs[record.id]
       // 点击展开图标loading
-      const {data} = await useExpandLoading({
+      const { data } = await useExpandLoading({
         expanded,
         record,
         expandItemEl,
         asyncFunc: getAdminAccess,
-        params: {id: record.id, limit: 100}
+        params: { id: record.id, limit: 100 }
       })
       record.children = data
     }
@@ -95,7 +109,7 @@ export default defineComponent({
       getAdminAccess,
       isDisabled,
       addItem,
-      deleteItems,
+      deleteItems
     }
   }
 })

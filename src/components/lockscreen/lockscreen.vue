@@ -1,43 +1,59 @@
 <template>
-  <div @keyup="unLockLogin(true)" @mousedown.stop @contextmenu.prevent :class="{unLockLogin: isShowLogin}"
-       class="lockscreen">
+  <div
+    @keyup="unLockLogin(true)"
+    @mousedown.stop
+    @contextmenu.prevent
+    :class="{unLockLogin: isShowLogin}"
+    class="lockscreen"
+  >
     <template v-if="!isShowLogin">
       <div class="lock-box">
         <div class="lock">
-          <span @click="unLockLogin(true)" class="lock-icon" title="解锁屏幕">
-            <lock-outlined/>
-            <unlock-outlined/>
+          <span
+            @click="unLockLogin(true)"
+            class="lock-icon"
+            title="解锁屏幕"
+          >
+            <lock-outlined />
+            <unlock-outlined />
           </span>
         </div>
         <h6 class="tips">由于您长时间未操作，需重新输入登录密码解锁进入系统。</h6>
       </div>
       <!--      华为充电-->
-      <component :is="Math.random() > 0.48 ? 'xiaomi-charge' : 'huawei-charge'" :battery="battery"
-                 :battery-status="batteryStatus" :calc-discharging-time="calcDischargingTime"/>
+      <component
+        :is="Math.random() > 0.48 ? 'xiaomi-charge' : 'huawei-charge'"
+        :battery="battery"
+        :battery-status="batteryStatus"
+        :calc-discharging-time="calcDischargingTime"
+      />
       <!--      <xiaomi-charge :battery="battery" />-->
     </template>
     <template v-if="isShowLogin">
       <div class="login-box">
         <a-avatar :size="128">
           <template v-slot:icon>
-            <user-outlined/>
+            <user-outlined />
           </template>
         </a-avatar>
         <div class="username">{{ loginForm.username }}</div>
         <a-input-search
-            v-model:value="loginForm.password"
-            type="password"
-            autofocus
-            placeholder="请输入登录密码"
-            size="large"
-            @search="onLogin"
+          v-model:value="loginForm.password"
+          type="password"
+          autofocus
+          placeholder="请输入登录密码"
+          size="large"
+          @search="onLogin"
         >
           <template v-slot:enterButton>
-            <LoadingOutlined  v-if="loginLoading"/>
+            <LoadingOutlined v-if="loginLoading" />
             <arrow-right-outlined v-else />
           </template>
         </a-input-search>
-        <a style="margin-top: 10px" @click="nav2login">重新登录</a>
+        <a
+          style="margin-top: 10px"
+          @click="nav2login"
+        >重新登录</a>
       </div>
     </template>
     <template v-if="!isShowLogin">
@@ -50,18 +66,21 @@
         </div>
       </div>
       <div class="computer-status">
-      <span :class="{offline: !online}" class="network">
-        <wifi-outlined class="network"/>
-      </span>
-        <api-outlined/>
+        <span
+          :class="{offline: !online}"
+          class="network"
+        >
+          <wifi-outlined class="network" />
+        </span>
+        <api-outlined />
       </div>
     </template>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, onMounted, reactive, toRefs, computed} from 'vue'
-import {Avatar, message, Modal} from 'ant-design-vue'
+import { defineComponent, reactive, toRefs } from 'vue'
+import { Avatar, message, Modal } from 'ant-design-vue'
 import {
   LockOutlined,
   LoadingOutlined,
@@ -71,18 +90,18 @@ import {
   ArrowRightOutlined,
   WifiOutlined
 } from '@ant-design/icons-vue'
-
-import {useRouter, useRoute} from "vue-router";
-import {useOnline} from '@/hooks/useOnline'
-import {useTime} from '@/hooks/useTime'
+import { useRouter, useRoute } from 'vue-router'
+import { useOnline } from '@/hooks/useOnline'
+import { useTime } from '@/hooks/useTime'
 // import md5 from 'blueimp-md5'
 import HuaweiCharge from './huawei-charge.vue'
 import XiaomiCharge from './xiaomi-charge.vue'
-import {useBattery} from '@/hooks/useBattery'
-import {useStore} from "vuex";
+import { useBattery } from '@/hooks/useBattery'
+import { useStore } from 'vuex'
+import { GlobalDataProps } from '@/store'
 
 export default defineComponent({
-  name: "lockscreen",
+  name: 'lockscreen',
   components: {
     LockOutlined,
     LoadingOutlined,
@@ -92,43 +111,43 @@ export default defineComponent({
     ApiOutlined,
     WifiOutlined,
     [Avatar.name]: Avatar,
-    HuaweiCharge, XiaomiCharge
+    HuaweiCharge,
+    XiaomiCharge
   },
-  setup(props, {emit}) {
-    const store = useStore()
-    const isLock = computed(() => store.state.lockscreen.isLock)
+  setup() {
+    const store = useStore<GlobalDataProps>()
     // 获取本地时间
-    const {month, day, hour, minute, second, week} = useTime()
-    const {online} = useOnline()
+    const { month, day, hour, minute, second, week } = useTime()
+    const { online } = useOnline()
 
     const router = useRouter()
     const route = useRoute()
 
-    const {battery, batteryStatus, calcDischargingTime} = useBattery()
+    const { battery, batteryStatus, calcDischargingTime } = useBattery()
 
     const state = reactive({
       isShowLogin: false,
       loginLoading: false, // 正在登录
       loginForm: {
         username: store.getters.userInfo.username,
-        password: '',
+        password: ''
       }
     })
 
     // 解锁登录
-    const unLockLogin = (val: boolean) => state.isShowLogin = val
+    const unLockLogin = (val: boolean) => (state.isShowLogin = val)
 
     // 登录
     const onLogin = async () => {
-      if (state.loginForm.password.trim() == '') return message.warn('请填写密码')
-      const params = {...state.loginForm}
+      if (state.loginForm.password.trim() === '') return message.warn('请填写密码')
+      const params = { ...state.loginForm }
       state.loginLoading = true
       // params.password = md5(params.password)
-      const {code, result, message: msg} = await store.dispatch('user/Login', params).finally(() => {
+      const { code, message: msg } = await store.dispatch('user/Login', params).finally(() => {
         state.loginLoading = false
         message.destroy()
       })
-      if (code == 0) {
+      if (code === 0) {
         Modal.destroyAll()
         message.success('登录成功！')
         unLockLogin(false)
@@ -153,7 +172,12 @@ export default defineComponent({
     return {
       ...toRefs(state),
       online,
-      month, day, hour, minute, second, week,
+      month,
+      day,
+      hour,
+      minute,
+      second,
+      week,
       battery,
       batteryStatus,
       calcDischargingTime,
@@ -236,7 +260,6 @@ export default defineComponent({
     }
   }
 
-
   .local-time {
     position: absolute;
     bottom: 60px;
@@ -279,5 +302,4 @@ export default defineComponent({
     }
   }
 }
-
 </style>

@@ -3,7 +3,7 @@ import {
   LoginParams,
   LoginResultModel,
   GetUserInfoByUserIdParams,
-  GetUserInfoByUserIdModel,
+  GetUserInfoByUserIdModel
 } from './model/userModel';
 
 enum Api {
@@ -17,7 +17,7 @@ enum Api {
 export function getUserInfo() {
   return http.request({
     url: Api.login,
-    method: 'POST',
+    method: 'POST'
   }, {
     isTransformRequestResult: false
   });
@@ -30,9 +30,9 @@ export function login(params: LoginParams) {
   return http.request({
     url: Api.login,
     method: 'POST',
-    params,
+    params
   }, {
-    isTransformRequestResult: false,
+    isTransformRequestResult: false
   });
 }
 
@@ -43,7 +43,7 @@ export function changePassword(params, uid) {
   return http.request({
     url: `/user/u${uid}/changepw`,
     method: 'POST',
-    params,
+    params
   }, {
     isTransformRequestResult: false
   });
@@ -56,6 +56,6 @@ export function logout(params) {
   return http.request({
     url: Api.logout,
     method: 'POST',
-    params,
+    params
   });
 }

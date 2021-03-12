@@ -7,7 +7,7 @@ import { generatorDynamicRouter } from '@/router/generator-routers'
 
 const state = {
     addRouters: [],
-    menus: [],
+    menus: []
 }
 
 type StateType = typeof state
@@ -18,7 +18,7 @@ const asyncRouter: Module<StateType, any> = {
     mutations: {
         SET_ROUTERS: (state, routers) => {
             state.menus = routers
-        },
+        }
     },
     actions: {
         GenerateRoutes ({ commit }) {
@@ -28,8 +28,8 @@ const asyncRouter: Module<StateType, any> = {
                     resolve(routers)
                 }).catch(e => reject(e))
             })
-        },
-    },
+        }
+    }
 }
 
 export default asyncRouter

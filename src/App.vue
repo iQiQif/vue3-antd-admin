@@ -1,27 +1,29 @@
 <template>
-  <config-provider v-show="!isLock" :locale="zhCN">
+  <config-provider
+    v-show="!isLock"
+    :locale="zhCN"
+  >
     <router-view v-slot="{ Component }">
-      <component :is="Component"/>
+      <component :is="Component" />
     </router-view>
   </config-provider>
   <transition name="slide-up">
-    <lock-screen v-if="isLock"/>
+    <lock-screen v-if="isLock" />
   </transition>
 </template>
 
 <script lang="ts">
-import {defineComponent, computed, ref, onMounted, onUnmounted} from 'vue';
-import zhCN from 'ant-design-vue/es/locale/zh_CN';
-import {ConfigProvider} from 'ant-design-vue'
-import {LockScreen} from '@/components/lockscreen'
-import {useStore} from 'vuex'
-import {useRoute} from "vue-router";
+import { defineComponent, computed, onMounted, onUnmounted } from 'vue'
+import zhCN from 'ant-design-vue/es/locale/zh_CN'
+import { ConfigProvider } from 'ant-design-vue'
+import { LockScreen } from '@/components/lockscreen'
+import { useStore } from 'vuex'
+import { useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'App',
-  components: {ConfigProvider, LockScreen},
+  components: { ConfigProvider, LockScreen },
   setup() {
-
     const route = useRoute()
     const store = useStore()
     const isLock = computed(() => store.state.lockscreen.isLock)
@@ -31,7 +33,7 @@ export default defineComponent({
 
     const timekeeping = () => {
       clearInterval(timer)
-      if (route.name == 'login' || isLock.value) return
+      if (route.name === 'login' || isLock.value) return
       // 设置不锁屏
       store.commit('lockscreen/setLock', false)
       // 重置锁屏时间
@@ -58,25 +60,24 @@ export default defineComponent({
 
     return {
       zhCN,
-      isLock,
+      isLock
     }
   }
-});
+})
 </script>
 
 <style lang="scss">
-@import "~@/styles/global.scss";
-@import "~@/styles/common.scss";
-@import "~@/styles/override.scss";
+@import '~@/styles/global.scss';
+@import '~@/styles/common.scss';
+@import '~@/styles/override.scss';
 
 .slide-up-enter-active,
 .slide-up-leave-active {
-  transition: transform .35s ease-in;
+  transition: transform 0.35s ease-in;
 }
 
 .slide-up-enter-form,
-.slide-up-leave-to{
+.slide-up-leave-to {
   transform: translateY(-100%);
 }
-
 </style>

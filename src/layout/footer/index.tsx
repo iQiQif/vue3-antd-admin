@@ -26,5 +26,5 @@ export default defineComponent({
                 </a-layout-footer>
             </>
         );
-    },
+    }
 });

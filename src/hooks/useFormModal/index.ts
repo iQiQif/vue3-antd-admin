@@ -1,5 +1,5 @@
 // create-api.ts
-import {App, createVNode, render, ref, mergeProps , ComponentOptions} from 'vue'
+import {App, createVNode, render, ref, mergeProps, ComponentOptions} from 'vue'
 import FormModal from './form-modal.vue'
 import {FormSchema} from "@/types/schema";
 
@@ -31,7 +31,7 @@ export const useFormModal = (options: Options): any => {
         _instance = null
         container.remove()
     }
-    const formModal = createVNode(FormModal, {...options,remove})
+    const formModal = createVNode(FormModal, {...options, remove})
     render(formModal, container)
     return _instance
 }

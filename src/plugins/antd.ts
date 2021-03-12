@@ -2,7 +2,7 @@ import type { App } from 'vue';
 
 import {AButton} from '@/components/button/'
 
-import {Modal, Table, Menu, Input, Form,Card, Checkbox, Radio} from 'ant-design-vue';
+import {Modal, Table, Menu, Input, Form, Card, Checkbox, Radio} from 'ant-design-vue';
 
 import 'ant-design-vue/dist/antd.css';
 

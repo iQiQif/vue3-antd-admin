@@ -34,7 +34,7 @@ export default defineComponent({
     battery: { // 电池对象
       type: Object,
       default: () => ({})
-    },
+    }
   }
 })
 </script>

@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import {defineComponent, reactive, toRefs} from 'vue'
-import {Alert,} from 'ant-design-vue'
+import {Alert} from 'ant-design-vue'
 import {IconFont} from '@/components/iconfont'
 import PreviewModal from '@/components/preview-modal.vue'
 

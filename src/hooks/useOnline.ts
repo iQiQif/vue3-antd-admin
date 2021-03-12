@@ -7,7 +7,7 @@ export function useOnline() {
     const online = ref(true)
 
     const showStatus = (val) => {
-        online.value = typeof val == 'boolean' ? val : val.target.online
+        online.value = typeof val === 'boolean' ? val : val.target.online
     }
 
 // 在页面加载后，设置正确的网络状态

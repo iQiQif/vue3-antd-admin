@@ -43,7 +43,7 @@ export default defineComponent({
     PageFooter,
     [Layout.name]: Layout,
     [Layout.Content.name]: Layout.Content,
-    [Layout.Sider.name]: Layout.Sider,
+    [Layout.Sider.name]: Layout.Sider
   },
   setup() {
     const collapsed = ref<boolean>(false)

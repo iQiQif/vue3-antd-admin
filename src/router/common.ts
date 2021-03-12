@@ -5,5 +5,5 @@ import redirect from "@/router/modules/redirect";
 export default [
     ...dashboard,
     ...demos,
-    ...redirect,
+    ...redirect
 ]

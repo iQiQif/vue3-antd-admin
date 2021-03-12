@@ -4,10 +4,21 @@
       <close-circle-outlined @click="isVisible = false" class="close-icon" />
       <div class="preview-content" :style="contentStyle">
         <a-spin :spinning="loading">
-          <img @load.stop="imgLoaded" v-if="type === 'image'" ref="img" :style="imgStyle" :src="url"
+          <img
+@load.stop="imgLoaded"
+v-if="type === 'image'"
+ref="img"
+:style="imgStyle"
+:src="url"
                alt=""/>
-          <video ref="video" @canplay="loading = false" @loadstart="loading = true" v-if="type === 'video'" :src="url"
-                 controls autoplay></video>
+          <video
+ref="video"
+@canplay="loading = false"
+@loadstart="loading = true"
+v-if="type === 'video'"
+:src="url"
+                 controls
+autoplay></video>
           <div ref="imgScaleMask" class="img-scale-mask">
             {{ ~~(imgScale * 100) + '%' }}
           </div>
@@ -27,13 +38,13 @@
 <script lang="ts">
 import {defineComponent, PropType, reactive, toRefs, ref, computed} from 'vue'
 import {Spin} from 'ant-design-vue'
-import {ZoomInOutlined, ZoomOutOutlined, RedoOutlined, DownloadOutlined,OneToOneOutlined, CloseCircleOutlined} from '@ant-design/icons-vue'
+import {ZoomInOutlined, ZoomOutOutlined, RedoOutlined, DownloadOutlined, OneToOneOutlined, CloseCircleOutlined} from '@ant-design/icons-vue'
 import {downloadByUrl} from "@/utils/downloadFile";
 
 export default defineComponent({
   name: 'preview-modal',
   emits: ['update:visible'],
-  components: {ZoomInOutlined, ZoomOutOutlined, RedoOutlined, DownloadOutlined, CloseCircleOutlined,OneToOneOutlined, [Spin.name]: Spin},
+  components: {ZoomInOutlined, ZoomOutOutlined, RedoOutlined, DownloadOutlined, CloseCircleOutlined, OneToOneOutlined, [Spin.name]: Spin},
   props: {
     visible: {
       type: Boolean as PropType<boolean>,
@@ -41,11 +52,11 @@ export default defineComponent({
     },
     type: {
       type: String as PropType<string>,
-      default: 'image',
+      default: 'image'
     },
     url: {
       type: String as PropType<string>,
-      default: '',
+      default: ''
     }
   },
   setup(props, {emit}) {

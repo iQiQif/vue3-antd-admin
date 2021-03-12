@@ -1,4 +1,4 @@
-import {defineComponent,SetupContext, PropType} from 'vue'
+import {defineComponent, SetupContext, PropType} from 'vue'
 import {Button} from 'ant-design-vue'
 import {ButtonType} from 'ant-design-vue/lib/button/buttonTypes'
 import './styles/index.less'

@@ -12,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
         component: markRaw(RouterTransition),
         meta: {
             title: 'demo演示',
-            icon: 'icon-zhuomian',
+            icon: 'icon-zhuomian'
         },
         children: [
             {
@@ -54,7 +54,7 @@ const routes: Array<RouteRecordRaw> = [
                     keepAlive: true
                 },
                 component: () => import(/* webpackChunkName: "demos-button" */ '@/views/shared/demos/icons/Iconfont.vue')
-            },
+            }
         ]
     }
 ]

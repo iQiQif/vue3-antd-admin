@@ -14,7 +14,7 @@ export function getAdminAccessModule(params?: object) {
   return http.request({
     url: Api.adminAccessModule,
     method: RequestEnum.GET,
-    params,
+    params
   });
 }
 
@@ -26,7 +26,7 @@ export function getAdminAccess(params) {
   return http.request({
     url: Api.adminAccess,
     method: RequestEnum.GET,
-    params,
+    params
   });
 }
 
@@ -37,7 +37,7 @@ export function getAdminAccess(params) {
 export function delAdminAccess(id: string) {
   return http.request({
     url: [Api.adminAccess, id].join('/'),
-    method: RequestEnum.DELETE,
+    method: RequestEnum.DELETE
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '删除成功'
@@ -52,7 +52,7 @@ export function patchAdminAccess(id, params) {
   return http.request({
     url: [Api.adminAccess, id].join('/'),
     method: RequestEnum.PATCH,
-    params,
+    params
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '修改成功'
@@ -68,7 +68,7 @@ export function postAdminAccess(params) {
   return http.request({
     url: Api.adminAccess,
     method: RequestEnum.POST,
-    params,
+    params
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '创建成功'

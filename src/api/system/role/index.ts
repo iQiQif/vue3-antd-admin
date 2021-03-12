@@ -13,7 +13,7 @@ enum Api {
 export function getAdminRoleAccess(id?: string | number) {
   return http.request({
     url: [Api.adminRoleAccess, id].join('/'),
-    method: RequestEnum.GET,
+    method: RequestEnum.GET
   });
 }
 
@@ -25,7 +25,7 @@ export function getAdminRole(params) {
   return http.request({
     url: Api.adminRole,
     method: RequestEnum.GET,
-    params,
+    params
   });
 }
 
@@ -36,7 +36,7 @@ export function getAdminRole(params) {
 export function delAdminRole(id: string) {
   return http.request({
     url: [Api.adminRole, id].join('/'),
-    method: RequestEnum.DELETE,
+    method: RequestEnum.DELETE
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '删除成功'
@@ -51,7 +51,7 @@ export function patchAdminRole(id, params) {
   return http.request({
     url: [Api.adminRole, id].join('/'),
     method: RequestEnum.PATCH,
-    params,
+    params
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '修改成功'
@@ -67,7 +67,7 @@ export function postAdminRole(params) {
   return http.request({
     url: Api.adminRole,
     method: RequestEnum.POST,
-    params,
+    params
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '创建成功'

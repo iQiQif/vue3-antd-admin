@@ -13,11 +13,11 @@ export const columns: TableColumn[] = [ // 资源管理
         dataIndex: 'moduleName',
         slots: {
             customRender: 'moduleName'
-        },
+        }
     },
     {
         title: 'url地址',
-        dataIndex: 'url',
+        dataIndex: 'url'
     },
     {
         title: 'icon图标',
@@ -30,7 +30,7 @@ export const columns: TableColumn[] = [ // 资源管理
     },
     {
         title: '排序',
-        dataIndex: 'sort',
+        dataIndex: 'sort'
     },
     {
         title: '创建时间',
@@ -73,7 +73,7 @@ export const columns: TableColumn[] = [ // 资源管理
                         return message.warn('系统预置菜单，不能删除！')
                     }
                     return await delAdminAccess(record.id).then(() => refreshTableData())
-                },
+                }
             },
             {
                 type: 'button', // 控制类型，默认为a,可选： select | button | text
@@ -88,8 +88,8 @@ export const columns: TableColumn[] = [ // 资源管理
                 func: ({record}, callback) => useCreateModal(AddModal, { // 点击删除的回调
                     fields: record,
                     callback
-                }),
+                })
             }
         ]
-    },
+    }
 ]

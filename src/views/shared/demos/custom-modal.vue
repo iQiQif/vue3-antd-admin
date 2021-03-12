@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import {defineComponent, reactive, toRefs} from 'vue'
-import {Alert,Card} from 'ant-design-vue'
+import {Alert, Card} from 'ant-design-vue'
 import {ACustomModal} from '@/components/a-custom-modal'
 
 /**

@@ -20,10 +20,10 @@ const routes: Array<RouteRecordRaw> = [{
             name: `${routeName}-welcome`,
             meta: {
                 title: '首页',
-                icon: 'icon-shouye',
+                icon: 'icon-shouye'
             },
             component: () => import(/* webpackChunkName: "dashboard-welcome" */ '@/views/shared/dashboard/welcome/index.vue')
-        },
+        }
         ]
 }]
 

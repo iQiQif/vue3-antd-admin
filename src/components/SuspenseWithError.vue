@@ -1,5 +1,8 @@
 <template>
-  <slot v-if="error" name="error">
+  <slot
+    v-if="error"
+    name="error"
+  >
     {{ error }}
   </slot>
   <Suspense v-else>
@@ -13,16 +16,16 @@
 </template>
 
 <script lang="ts">
-import {ref, defineComponent, onErrorCaptured} from 'vue'
+import { ref, defineComponent, onErrorCaptured } from 'vue'
 export default defineComponent({
   name: 'SuspenseWithError',
   setup() {
-    const error = ref<any>(null);
-    onErrorCaptured((e) => {
+    const error = ref<any>(null)
+    onErrorCaptured(() => {
       error.value = '(⊙o⊙)…出了点问题。'
-      return true;
-    });
-    return {error};
+      return true
+    })
+    return { error }
   }
 })
 </script>

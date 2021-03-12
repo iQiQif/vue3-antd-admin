@@ -6,7 +6,7 @@ let MyIconFont = createFromIconfontCN({
     // scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
     // scriptUrl: '//at.alicdn.com/t/font_2184398_zflo1kjcemp.js',
     // iconfont字体图标本地化，详见：/public/iconfont.js
-    scriptUrl: '',
+    scriptUrl: ''
 })
 
 export default defineComponent({
@@ -34,7 +34,7 @@ export default defineComponent({
         // 如果外部传进来字体图标路径，则覆盖默认的
         if (props.scriptUrl) {
             MyIconFont = createFromIconfontCN({
-                scriptUrl: props.scriptUrl,
+                scriptUrl: props.scriptUrl
             })
         }
 

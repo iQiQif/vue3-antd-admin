@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [{
     meta: {
         title: '重定向',
         icon: 'SettingOutlined',
-        hidden: true,
+        hidden: true
     },
     children: [
         {
@@ -20,7 +20,7 @@ const routes: Array<RouteRecordRaw> = [{
                 title: '重定向',
                 hidden: true,
                 keepAlive: false
-            },
+            }
         }
     ]
 }]

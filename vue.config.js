@@ -75,7 +75,7 @@ module.exports = {
                     extractComments: false, // 是否将注释提取到一个单独的文件中
                     sourceMap: false,
                     parallel: true
-                }),
+                })
                 // new CompressionPlugin({
                 //     /* [file]被替换为原始资产文件名。
                 //        [path]替换为原始资产的路径。

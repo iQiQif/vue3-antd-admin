@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
         path: '/icons',
         name: 'icons',
         component: () => import(/* webpackChunkName: "icons" */ '@/views/shared/icons/index.vue')
-    },
+    }
 ]
 
 export default routes

@@ -13,7 +13,7 @@ export function getAdminAccount(params) {
   return http.request({
     url: Api.adminAccount,
     method: RequestEnum.GET,
-    params,
+    params
   }, {
     isShowErrorMessage: true
   });
@@ -26,7 +26,7 @@ export function getAdminAccount(params) {
 export function delAdminAccount(id: string) {
   return http.request({
     url: [Api.adminAccount, id].join('/'),
-    method: RequestEnum.DELETE,
+    method: RequestEnum.DELETE
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '删除成功'
@@ -41,7 +41,7 @@ export function patchAdminAccount(id, params) {
   return http.request({
     url: [Api.adminAccount, id].join('/'),
     method: RequestEnum.PATCH,
-    params,
+    params
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '修改成功'
@@ -57,7 +57,7 @@ export function postAdminAccount(params) {
   return http.request({
     url: Api.adminAccount,
     method: RequestEnum.POST,
-    params,
+    params
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '新建成功'

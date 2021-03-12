@@ -17,7 +17,7 @@ export default function BrowserType(lang: 'zh-cn' | 'en' = 'en') {
         [testUa(/macintosh|macintel/g), "macos"], // macos系统
         [testUa(/x11/g), "linux"], // linux系统
         [testUa(/android|adr/g), "android"], // android系统
-        [testUa(/ios|iphone|ipad|ipod|iwatch/g), "ios"], // ios系统
+        [testUa(/ios|iphone|ipad|ipod|iwatch/g), "ios"] // ios系统
     ]).get(true) || 'unknow'
 
     // 系统版本
@@ -30,11 +30,11 @@ export default function BrowserType(lang: 'zh-cn' | 'en' = 'en') {
             [testUa(/windows nt 6.1|windows 7/g), "7"],
             [testUa(/windows nt 6.2|windows 8/g), "8"],
             [testUa(/windows nt 6.3|windows 8.1/g), "8.1"],
-            [testUa(/windows nt 10.0|windows 10/g), "10"],
+            [testUa(/windows nt 10.0|windows 10/g), "10"]
         ]).get(true)],
         ["macos", testVs(/os x [\d._]+/g)],
         ["android", testVs(/android [\d._]+/g)],
-        ["ios", testVs(/os [\d._]+/g)],
+        ["ios", testVs(/os [\d._]+/g)]
     ]).get(system) || "unknow"
 
     // 平台
@@ -50,11 +50,11 @@ export default function BrowserType(lang: 'zh-cn' | 'en' = 'en') {
             [testUa(/safari/g), 'safari'], // safari浏览器
             [testUa(/chrome/g), 'chrome'], // chrome浏览器
             [testUa(/opr/g), 'opera'], // opera浏览器
-            [testUa(/edge/g), 'edge'], // edge浏览器
+            [testUa(/edge/g), 'edge'] // edge浏览器
         ]).get(true)] || 'unknow'], // [webkit内核, xxx浏览器]
         [testUa(/gecko/g) && testUa(/firefox/g), ['gecko', 'firefox']], // [gecko内核,firefox浏览器]
         [testUa(/presto/g), ['presto', 'opera']], // [presto内核,opera浏览器]
-        [testUa(/trident|compatible|msie/g), ['trident', 'iexplore']], // [trident内核,iexplore浏览器]
+        [testUa(/trident|compatible|msie/g), ['trident', 'iexplore']] // [trident内核,iexplore浏览器]
     ]).get(true) || ['unknow', 'unknow']
 
     // 内核版本
@@ -72,7 +72,7 @@ export default function BrowserType(lang: 'zh-cn' | 'en' = 'en') {
         ['iexplore', testVs(/(msie [\d._]+)|(rv:[\d._]+)/g)],
         ['edge', testVs(/edge\/[\d._]+/g)],
         ['safari', testVs(/version\/[\d._]+/g)],
-        ['chrome', testVs(/chrome\/[\d._]+/g)],
+        ['chrome', testVs(/chrome\/[\d._]+/g)]
     ]).get(supporter) || 'unknow'
 
     // 外壳和外壳版本
@@ -81,10 +81,10 @@ export default function BrowserType(lang: 'zh-cn' | 'en' = 'en') {
         [testUa(/qqbrowser/g), ['qq', testVs(/qqbrowser\/[\d._]+/g)]], // [QQ浏览器,]
         [testUa(/ucbrowser/g), ['uc', testVs(/ucbrowser\/[\d._]+/g)]], // [UC浏览器,]
         [testUa(/qihu 360se/g), ['360', 'unknow']], // [360浏览器(无版本),]
-        [testUa(/2345explorer/g),['2345', testVs(/2345explorer\/[\d._]+/g)]], // [2345浏览器,]
+        [testUa(/2345explorer/g), ['2345', testVs(/2345explorer\/[\d._]+/g)]], // [2345浏览器,]
         [testUa(/metasr/g), ['sougou', 'unknow']], // [搜狗浏览器(无版本),]
         [testUa(/lbbrowser/g), ['liebao', 'unknow']], // [猎豹浏览器(无版本),]
-        [testUa(/maxthon/g), ['maxthon', testVs(/maxthon\/[\d._]+/g)]], // [遨游浏览器,]
+        [testUa(/maxthon/g), ['maxthon', testVs(/maxthon\/[\d._]+/g)]] // [遨游浏览器,]
     ]).get(true) || ['none', "unknow"]
 
     return {
@@ -95,7 +95,7 @@ export default function BrowserType(lang: 'zh-cn' | 'en' = 'en') {
             载体: supporter, // 载体: chrome safari firefox opera iexplore edge
             载体版本: supporterVs, // 载体版本
             系统: system, // 系统: windows macos linux android ios
-            系统版本: systemVs, // 系统版本
+            系统版本: systemVs // 系统版本
         }, shell === "none" ? {} : {
             外壳: shell, // 外壳: wechat qq uc 360 2345 sougou liebao maxthon
             外壳版本: shellVs // 外壳版本
@@ -107,7 +107,7 @@ export default function BrowserType(lang: 'zh-cn' | 'en' = 'en') {
             supporter, // 载体: chrome safari firefox opera iexplore edge
             supporterVs, // 载体版本
             system, // 系统: windows macos linux android ios
-            systemVs, // 系统版本
+            systemVs // 系统版本
         }, shell === "none" ? {} : {
             shell, // 外壳: wechat qq uc 360 2345 sougou liebao maxthon
             shellVs // 外壳版本

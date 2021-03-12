@@ -22,7 +22,7 @@ export const routes: Array<RouteRecordRaw> = [
         ]
     },
     ...shared,
-    errorRoutes,
+    errorRoutes
 ]
 
 const router = createRouter({

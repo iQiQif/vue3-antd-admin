@@ -41,9 +41,9 @@ export default defineComponent({
   props: {
     menuInfo: {
       type: Object,
-      default: () => ({}),
-    },
-  },
+      default: () => ({})
+    }
+  }
 })
 </script>
 

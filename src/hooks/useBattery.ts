@@ -86,6 +86,6 @@ export const useBattery = () => {
     return {
         ...toRefs(state),
         batteryStatus,
-        calcDischargingTime,
+        calcDischargingTime
     }
 }

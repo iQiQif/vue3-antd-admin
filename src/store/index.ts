@@ -1,9 +1,20 @@
 import { createStore } from 'vuex'
-import getters from "@/store/getters";
+import getters from '@/store/getters'
 import modules from '@/store/modules'
-import {App} from "vue";
+import { App } from 'vue'
 
-const store = createStore({
+export type GlobalDataProps = {
+  testName: string
+  user?: {
+    token: string
+    avatar: string
+    name: string
+    info: any
+    roles: any[]
+  }
+}
+
+const store = createStore<GlobalDataProps>({
   state: {
     testName: 'hello'
   },
@@ -12,13 +23,12 @@ const store = createStore({
       state.testName = name
     }
   },
-  actions: {
-  },
+  actions: {},
   modules,
   getters
 })
 
-export function setupStore (app: App) {
+export function setupStore(app: App) {
   app.use(store)
   console.log(store, 'vuex')
 }

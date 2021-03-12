@@ -13,7 +13,7 @@ export function sysConfig(params) {
   return http.request({
     url: Api.sysConfig,
     method: 'POST',
-    params,
+    params
   });
 }
 
@@ -27,7 +27,7 @@ export function sysSetconfig(params) {
     headers: {
       // 'Content-type': ContentTypeEnum.TEXT
     },
-    params,
+    params
   }, {
     isParseToJson: false,
 

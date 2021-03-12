@@ -41,7 +41,7 @@ export const getFormSchema = (): FormSchema => ({
             props: {
                 placeholder: "描述信息"
             }
-        },
+        }
     ]
 })
 
