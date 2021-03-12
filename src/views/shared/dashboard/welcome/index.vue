@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Demo />
     <div class="box">
       <img src="~@/assets/analysis.svg">
       <a-descriptions
@@ -37,14 +38,15 @@ import BrowserType from '@/utils/browser-type'
 import { useBattery } from '@/hooks/useBattery'
 import { useOnline } from '@/hooks/useOnline'
 import { useStore } from 'vuex'
-// import performanceMonitor from '@/utils/performanceMonitor'
+import Demo from '../components/Demo'
 
 export default defineComponent({
   name: 'welcome',
   components: {
     [Badge.name]: Badge,
     [Descriptions.name]: Descriptions,
-    [Descriptions.Item.name]: Descriptions.Item
+    [Descriptions.Item.name]: Descriptions.Item,
+    Demo
   },
   setup() {
     const userInfo = useStore().getters.userInfo

@@ -7,13 +7,7 @@
   "vetur.format.defaultFormatter.html": "js-beautify-html",
   "eslint.autoFixOnSave": true, //保存时使用自动格式化
   "editor.formatOnSave": true, // 格式化插件的配置
-  "eslint.validate": [
-    "typescript",
-    "javascript",
-    "javascriptreact",
-    "html",
-    "vue"
-  ],
+  "eslint.validate": ["typescript", "javascript", "javascriptreact", "html", "vue", "tsx"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }
